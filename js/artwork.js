@@ -20,7 +20,7 @@ const ARTWORK = [
     medium: "Ink on paper",
   },
   {
-    title: "Salam",
+    title: "Salaam",
     image: "images/artwork/salam.jpg",
     date: "2025",
     medium: "Ink on paper",
