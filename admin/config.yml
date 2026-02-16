@@ -83,8 +83,9 @@
 #   See: https://decapcms.org/docs/github-backend/
 # ------------------------------------------------------------
 backend:
-  name: test-repo
-
+  name: github
+     repo: hah31/aamineez.art
+     branch: main
 
 # ------------------------------------------------------------
 # MEDIA — Image Uploads
