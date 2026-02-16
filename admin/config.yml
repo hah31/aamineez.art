@@ -84,8 +84,8 @@
 # ------------------------------------------------------------
 backend:
   name: github
-     repo: hah31/aamineez.art
-     branch: main
+  repo: hah31/aamineez.art
+  branch: main
 
 # ------------------------------------------------------------
 # MEDIA — Image Uploads
