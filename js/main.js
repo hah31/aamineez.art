@@ -1,34 +1,97 @@
 /**
  * Main application script
- * Renders gallery from ARTWORK data and handles lightbox
+ * Loads artwork from _data/artwork.json (falls back to ARTWORK array),
+ * filters by status, renders gallery, and handles lightbox.
  */
 (function () {
   "use strict";
 
+  var gallery = document.getElementById("gallery");
+  if (!gallery) return;
+
+  // Determine which status to show based on a data attribute on the gallery.
+  // index.html sets data-status-filter="available"
+  // previous-works.html sets data-status-filter="sold"
+  var statusFilter = gallery.dataset.statusFilter || "available";
+
+  // The filtered artwork for this page (populated after data loads)
+  var displayedArtwork = [];
+
+  // --- Data Loading ---
+
+  function loadArtwork() {
+    return fetch("_data/artwork.json")
+      .then(function (res) {
+        if (!res.ok) throw new Error("fetch failed");
+        return res.json();
+      })
+      .then(function (data) {
+        return data.pieces || [];
+      })
+      .catch(function () {
+        // Fall back to the ARTWORK array defined in artwork.js
+        return typeof ARTWORK !== "undefined" ? ARTWORK : [];
+      });
+  }
+
+  function loadSettings() {
+    fetch("_data/settings.json")
+      .then(function (res) {
+        if (!res.ok) throw new Error("fetch failed");
+        return res.json();
+      })
+      .then(function (settings) {
+        var heroHeading = document.querySelector(".hero h1");
+        if (heroHeading && settings.heroHeading) {
+          heroHeading.textContent = settings.heroHeading;
+        }
+        var aboutText = document.querySelector(".about-inner p");
+        if (aboutText && settings.aboutText) {
+          aboutText.textContent = settings.aboutText;
+        }
+      })
+      .catch(function () {
+        // Settings file not available; keep the hardcoded text
+      });
+  }
+
   // --- Gallery Rendering ---
-  const gallery = document.getElementById("gallery");
 
-  function renderGallery() {
-    const fragment = document.createDocumentFragment();
+  function renderGallery(artwork) {
+    displayedArtwork = artwork.filter(function (piece) {
+      return piece.status === statusFilter;
+    });
 
-    ARTWORK.forEach(function (piece, index) {
-      const item = document.createElement("article");
+    if (displayedArtwork.length === 0) {
+      var empty = document.createElement("p");
+      empty.className = "gallery-empty";
+      empty.textContent =
+        statusFilter === "sold"
+          ? "No previous works to display yet."
+          : "No artwork to display yet.";
+      gallery.appendChild(empty);
+      return;
+    }
+
+    var fragment = document.createDocumentFragment();
+
+    displayedArtwork.forEach(function (piece, index) {
+      var item = document.createElement("article");
       item.className = "gallery-item";
       item.setAttribute("role", "button");
       item.setAttribute("tabindex", "0");
       item.setAttribute("aria-label", "View " + piece.title);
       item.dataset.index = index;
 
-      const imgWrap = document.createElement("div");
+      var imgWrap = document.createElement("div");
       imgWrap.className = "gallery-item-img-wrap";
 
-      const img = document.createElement("img");
+      var img = document.createElement("img");
       img.src = piece.image;
       img.alt = piece.title;
       img.loading = "lazy";
       img.decoding = "async";
       img.onerror = function () {
-        // Show placeholder if image fails to load
         imgWrap.classList.add("gallery-item-placeholder");
         imgWrap.textContent = "\u2702";
         img.remove();
@@ -36,16 +99,16 @@
 
       imgWrap.appendChild(img);
 
-      const info = document.createElement("div");
+      var info = document.createElement("div");
       info.className = "gallery-item-info";
 
-      const title = document.createElement("h3");
+      var title = document.createElement("h3");
       title.className = "gallery-item-title";
       title.textContent = piece.title;
       info.appendChild(title);
 
       if (piece.date || piece.medium) {
-        const meta = document.createElement("p");
+        var meta = document.createElement("p");
         meta.className = "gallery-item-meta";
         var parts = [];
         if (piece.date) parts.push(piece.date);
@@ -63,6 +126,7 @@
   }
 
   // --- Lightbox ---
+
   var currentIndex = 0;
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightbox-img");
@@ -72,7 +136,6 @@
     currentIndex = index;
     updateLightbox();
     lightbox.hidden = false;
-    // Force reflow before adding class for transition
     lightbox.offsetHeight;
     lightbox.classList.add("is-active");
     document.body.style.overflow = "hidden";
@@ -87,7 +150,7 @@
   }
 
   function updateLightbox() {
-    var piece = ARTWORK[currentIndex];
+    var piece = displayedArtwork[currentIndex];
     lightboxImg.src = piece.image;
     lightboxImg.alt = piece.title;
 
@@ -102,18 +165,18 @@
   }
 
   function nextImage() {
-    currentIndex = (currentIndex + 1) % ARTWORK.length;
+    currentIndex = (currentIndex + 1) % displayedArtwork.length;
     updateLightbox();
   }
 
   function prevImage() {
-    currentIndex = (currentIndex - 1 + ARTWORK.length) % ARTWORK.length;
+    currentIndex =
+      (currentIndex - 1 + displayedArtwork.length) % displayedArtwork.length;
     updateLightbox();
   }
 
   // --- Event Listeners ---
 
-  // Gallery click/keyboard
   gallery.addEventListener("click", function (e) {
     var item = e.target.closest(".gallery-item");
     if (item) {
@@ -131,19 +194,22 @@
     }
   });
 
-  // Lightbox controls
-  lightbox.querySelector(".lightbox-close").addEventListener("click", closeLightbox);
-  lightbox.querySelector(".lightbox-prev").addEventListener("click", prevImage);
-  lightbox.querySelector(".lightbox-next").addEventListener("click", nextImage);
+  lightbox
+    .querySelector(".lightbox-close")
+    .addEventListener("click", closeLightbox);
+  lightbox
+    .querySelector(".lightbox-prev")
+    .addEventListener("click", prevImage);
+  lightbox
+    .querySelector(".lightbox-next")
+    .addEventListener("click", nextImage);
 
-  // Click backdrop to close
   lightbox.addEventListener("click", function (e) {
     if (e.target === lightbox) {
       closeLightbox();
     }
   });
 
-  // Keyboard navigation
   document.addEventListener("keydown", function (e) {
     if (!lightbox.classList.contains("is-active")) return;
 
@@ -161,5 +227,6 @@
   });
 
   // --- Init ---
-  renderGallery();
+  loadArtwork().then(renderGallery);
+  loadSettings();
 })();

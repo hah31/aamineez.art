@@ -1,0 +1,235 @@
+# ============================================================
+# Decap CMS Configuration — Aamineez Calligraphy Portfolio
+# ============================================================
+#
+# Decap CMS (formerly Netlify CMS) provides a browser-based
+# admin panel for managing your site content without editing
+# code. Access it by visiting:
+#
+#   https://aamineez.art/admin/
+#
+# HOW IT WORKS:
+#   1. You log in to the admin panel at /admin/
+#   2. You add, edit, or remove content through the visual editor
+#   3. The CMS commits your changes directly to this GitHub repo
+#   4. GitHub Pages automatically redeploys with the new content
+#
+# THIS CONFIG DEFINES:
+#   - How users authenticate (backend)
+#   - Where uploaded images are stored (media_folder)
+#   - What content can be managed (collections)
+#
+# DATA FILES:
+#   /_data/artwork.json  — All artwork entries (managed by CMS)
+#   /_data/settings.json — Hero heading & about text (managed by CMS)
+#
+# ============================================================
+
+
+# ------------------------------------------------------------
+# BACKEND — Authentication & Storage
+# ------------------------------------------------------------
+# The backend controls how the CMS authenticates users and
+# how it reads/writes content in your repository.
+#
+# CURRENT: "test-repo" backend
+#   - No login required — anyone can access the admin panel
+#   - Changes are saved in your browser's memory ONLY
+#   - Nothing is committed to GitHub
+#   - Use this to explore the admin interface safely
+#
+# *** WHEN YOU ARE READY FOR PRODUCTION, replace the backend
+#     section below with ONE of these options: ***
+#
+# ─── OPTION 1: Git Gateway (via Netlify Identity) ───
+#   Best if your site is deployed through Netlify.
+#   Provides email/password login for CMS users.
+#
+#   backend:
+#     name: git-gateway
+#     branch: main
+#
+#   Setup steps:
+#   1. Deploy your site on Netlify (connect your GitHub repo)
+#   2. Enable Netlify Identity (Site Settings → Identity)
+#   3. Enable Git Gateway (Identity → Services → Git Gateway)
+#   4. Invite yourself as a user in the Identity tab
+#   5. Add this script to your site's <head> tag:
+#      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+#
+# ─── OPTION 2: GitHub OAuth (direct GitHub login) ───
+#   Users log in with their GitHub account. Works with
+#   GitHub Pages (no Netlify required).
+#
+#   backend:
+#     name: github
+#     repo: hah31/aamineez.art
+#     branch: main
+#
+#   Setup steps:
+#   1. Go to GitHub → Settings → Developer Settings → OAuth Apps
+#   2. Register a new OAuth application:
+#      - Application name: Aamineez CMS
+#      - Homepage URL: https://aamineez.art
+#      - Authorization callback URL: https://aamineez.art/admin/
+#   3. You will need an OAuth authentication proxy server.
+#      Options include:
+#      - Netlify (free): deploy a site with Netlify and use
+#        its built-in OAuth proxy
+#      - Self-hosted: https://github.com/vencax/netlify-cms-github-oauth-provider
+#   4. Add to this config under backend:
+#      base_url: https://your-oauth-proxy.example.com
+#
+#   See: https://decapcms.org/docs/github-backend/
+# ------------------------------------------------------------
+backend:
+  name: test-repo
+
+
+# ------------------------------------------------------------
+# MEDIA — Image Uploads
+# ------------------------------------------------------------
+# media_folder:  Where uploaded files are saved in the repo
+# public_folder: The URL path used to display images on the site
+#
+# Both point to images/artwork/ so uploaded artwork images
+# are stored alongside existing images and use the same
+# URL paths the site already expects.
+# ------------------------------------------------------------
+media_folder: "images/artwork"
+public_folder: "images/artwork"
+
+
+# ------------------------------------------------------------
+# COLLECTIONS — Content Types
+# ------------------------------------------------------------
+# Collections define what content you can manage in the CMS.
+# Each collection appears as a section in the CMS sidebar.
+#
+# This site has two collections:
+#   1. Artwork  — Manage individual calligraphy pieces
+#   2. Settings — Edit site-wide text (heading, about section)
+# ------------------------------------------------------------
+collections:
+
+  # ==========================================================
+  # ARTWORK COLLECTION
+  # ==========================================================
+  # Manages all calligraphy artwork entries. The data is stored
+  # in a single JSON file at /_data/artwork.json.
+  #
+  # In the CMS sidebar, click "Artwork" → "Manage Artwork"
+  # to see all pieces. You can:
+  #   - Click any piece to expand and edit it
+  #   - Use the "Add pieces" button to create a new entry
+  #   - Drag entries to reorder them
+  #   - Delete entries you no longer want
+  #
+  # Each piece has: title, image, date, medium, description,
+  # and a status field (available / sold).
+  #
+  # Pieces with status "available" appear on the main gallery.
+  # Pieces with status "sold" appear on the Previous Works page.
+  # ==========================================================
+  - name: "artwork"
+    label: "Artwork"
+    files:
+      - label: "Manage Artwork"
+        name: "artwork"
+        file: "_data/artwork.json"
+        description: "Add, edit, or remove calligraphy pieces"
+        fields:
+          - label: "Pieces"
+            name: "pieces"
+            widget: "list"
+            label_singular: "Piece"
+            # The summary line shows the title and status for each
+            # collapsed entry in the list, so you can quickly scan
+            # which pieces are available vs. sold.
+            summary: "{{fields.title}} — {{fields.status}}"
+            fields:
+
+              # Title — The name of the artwork piece
+              - label: "Title"
+                name: "title"
+                widget: "string"
+                hint: "The name of this calligraphy piece"
+
+              # Image — Upload or select a photo of the artwork
+              # Uploaded images are saved to images/artwork/ in the repo
+              - label: "Image"
+                name: "image"
+                widget: "image"
+                hint: "Upload a photo of the artwork"
+
+              # Date — When the piece was created (free-form text)
+              # Examples: "2025", "January 2025", "2024-06-15"
+              - label: "Date"
+                name: "date"
+                widget: "string"
+                hint: "Year or date, e.g. '2025' or 'January 2025'"
+                required: false
+
+              # Medium — Materials and techniques used
+              # Examples: "Ink on paper", "Gold ink on black paper"
+              - label: "Medium"
+                name: "medium"
+                widget: "string"
+                hint: "e.g. 'Ink on paper', 'Gold ink on black paper'"
+                required: false
+
+              # Description — A longer description of the piece
+              # This is optional and can be left blank
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                hint: "A longer description of this piece (optional)"
+                required: false
+
+              # Status — Whether the piece is available for sale or sold
+              # "available" → displayed in the main gallery on the homepage
+              # "sold" → displayed on the Previous Works page
+              - label: "Status"
+                name: "status"
+                widget: "select"
+                options:
+                  - { label: "Available", value: "available" }
+                  - { label: "Sold", value: "sold" }
+                default: "available"
+                hint: "Available pieces show in the main gallery. Sold pieces show on the Previous Works page."
+
+
+  # ==========================================================
+  # SETTINGS COLLECTION (file-based, single file)
+  # ==========================================================
+  # Controls site-wide text content. This is a single editable
+  # file — not a collection where you create multiple entries.
+  #
+  # In the CMS sidebar, click "Settings" → "Site Settings"
+  # to edit:
+  #   - Hero Heading: The large title at the top of the homepage
+  #     (currently "Calligraphy")
+  #   - About Text: The paragraph in the About section
+  #
+  # Data is stored in /_data/settings.json.
+  # ==========================================================
+  - name: "settings"
+    label: "Settings"
+    files:
+      - label: "Site Settings"
+        name: "general"
+        file: "_data/settings.json"
+        description: "Edit the site heading and about text"
+        fields:
+
+          # Hero Heading — The large text at the top of the homepage
+          - label: "Hero Heading"
+            name: "heroHeading"
+            widget: "string"
+            hint: "The main heading displayed at the top of the site (e.g. 'Calligraphy')"
+
+          # About Text — The paragraph in the About section
+          - label: "About Text"
+            name: "aboutText"
+            widget: "text"
+            hint: "The description paragraph shown in the About section of the homepage"

@@ -371,6 +371,15 @@ img {
   }
 }
 
+/* --- Empty Gallery State --- */
+.gallery-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 24px;
+  font-size: 17px;
+  color: var(--color-text-secondary);
+}
+
 /* --- Animations --- */
 .gallery-item {
   opacity: 0;
