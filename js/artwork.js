@@ -17,18 +17,22 @@
 const ARTWORK = [
   {
     title: "Bismillah",
-    image: "images/artwork/IMG_9925.JPG",
-    image: "images/artwork/IMG_9923.JPG",
+    images: [
+      "images/artwork/IMG_9925.JPG",
+      "images/artwork/IMG_9923.JPG",
+    ],
     date: "2026",
     medium: "Ink on paper",
     description: "",
     status: "available",
   },
   {
-    title: "Salaam",
-    image: "images/artwork/IMG_9931.JPG",
-    image: "images/artwork/IMG_9933.JPG",
-    image: "images/artwork/IMG_9944.JPG",
+    title: "Salam",
+    images: [
+      "images/artwork/IMG_9931.JPG",
+      "images/artwork/IMG_9933.JPG",
+      "images/artwork/IMG_9944.JPG",
+    ],
     date: "2026",
     medium: "Ink on paper",
     description: "",
@@ -36,8 +40,10 @@ const ARTWORK = [
   },
   {
     title: "Patience",
-    image: "images/artwork/IMG_9934.JPG",
-    image: "images/artwork/IMG_9935.JPG",
+    images: [
+      "images/artwork/IMG_9934.JPG",
+      "images/artwork/IMG_9935.JPG",
+    ],
     date: "2026",
     medium: "Ink on handmade paper",
     description: "",
@@ -45,8 +51,10 @@ const ARTWORK = [
   },
   {
     title: "Light Upon Light",
-    image: "images/artwork/IMG_9936.JPG",
-    image: "images/artwork/IMG_9937.JPG",
+    images: [
+      "images/artwork/IMG_9937.JPG",
+      "images/artwork/IMG_9936.JPG",
+    ],
     date: "2026",
     medium: "Gold ink on black paper",
     description: "",
@@ -54,8 +62,10 @@ const ARTWORK = [
   },
   {
     title: "Gratitude",
-    image: "images/artwork/IMG_9939.JPG",
-    image: "images/artwork/IMG_9947.JPG",
+    images: [
+      "images/artwork/IMG_9939.JPG",
+      "images/artwork/IMG_9947.JPG",
+    ],
     date: "2026",
     medium: "Watercolor and ink",
     description: "",
@@ -63,9 +73,11 @@ const ARTWORK = [
   },
   {
     title: "The Pen",
-    image: "images/artwork/IMG_9948.JPG",
-    image: "images/artwork/IMG_9954.JPG",
-    image: "images/artwork/IMG_9956.JPG",
+    images: [
+      "images/artwork/IMG_9948.JPG",
+      "images/artwork/IMG_9954.JPG",
+      "images/artwork/IMG_9956.JPG",
+    ],
     date: "2026",
     medium: "Reed pen on cotton paper",
     description: "",
@@ -73,9 +85,11 @@ const ARTWORK = [
   },
   {
     title: "The Waves",
-    image: "images/artwork/IMG_9962.JPG",
-    image: "images/artwork/IMG_9976.JPG",
-    image: "images/artwork/IMG_9980.JPG",
+    images: [
+      "images/artwork/IMG_9962.JPG",
+      "images/artwork/IMG_9976.JPG",
+      "images/artwork/IMG_9980.JPG",
+    ],
     date: "2026",
     medium: "Reed pen on cotton paper",
     description: "",
@@ -83,10 +97,12 @@ const ARTWORK = [
   },
   {
     title: "The Big One",
-    image: "images/artwork/IMG_9984.JPG",
-    image: "images/artwork/IMG_9985.JPG",
-    image: "images/artwork/IMG_9987.JPG",
-    image: "images/artwork/IMG_9990.JPG",
+    images: [
+      "images/artwork/IMG_9984.JPG",
+      "images/artwork/IMG_9985.JPG",
+      "images/artwork/IMG_9987.JPG",
+      "images/artwork/IMG_9990.JPG",
+    ],
     date: "2026",
     medium: "Reed pen on cotton paper",
     description: "",
