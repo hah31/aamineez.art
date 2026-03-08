@@ -155,12 +155,17 @@ collections:
                 widget: "string"
                 hint: "The name of this calligraphy piece"
 
-              # Image — Upload or select a photo of the artwork
+              # Images — Upload or select photos of the artwork
               # Uploaded images are saved to images/artwork/ in the repo
-              - label: "Image"
-                name: "image"
-                widget: "image"
-                hint: "Upload a photo of the artwork"
+              # You can upload multiple images per piece and reorder them
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                hint: "Upload photos of the artwork (can add multiple)"
+                field:
+                  label: "Image"
+                  name: "image"
+                  widget: "image"
 
               # Date — When the piece was created (free-form text)
               # Examples: "2025", "January 2025", "2024-06-15"
