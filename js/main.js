@@ -26,7 +26,14 @@
         return res.json();
       })
       .then(function (data) {
-        return data.pieces || [];
+        var pieces = data.pieces || [];
+        // Support both old "image" and new "images" format for backward compatibility
+        return pieces.map(function (piece) {
+          if (!piece.images && piece.image) {
+            piece.images = [piece.image];
+          }
+          return piece;
+        });
       })
       .catch(function () {
         // Fall back to the ARTWORK array defined in artwork.js
@@ -86,8 +93,9 @@
       var imgWrap = document.createElement("div");
       imgWrap.className = "gallery-item-img-wrap";
 
+      // Display the first image from the images array
       var img = document.createElement("img");
-      img.src = piece.image;
+      img.src = piece.images && piece.images.length > 0 ? piece.images[0] : piece.image;
       img.alt = piece.title;
       img.loading = "lazy";
       img.decoding = "async";
@@ -98,6 +106,14 @@
       };
 
       imgWrap.appendChild(img);
+
+      // Add image count badge if there are multiple images
+      if (piece.images && piece.images.length > 1) {
+        var countBadge = document.createElement("div");
+        countBadge.className = "gallery-item-count";
+        countBadge.textContent = "+" + (piece.images.length - 1);
+        imgWrap.appendChild(countBadge);
+      }
 
       var info = document.createElement("div");
       info.className = "gallery-item-info";
@@ -127,13 +143,15 @@
 
   // --- Lightbox ---
 
-  var currentIndex = 0;
+  var currentPieceIndex = 0;
+  var currentImageIndex = 0;
   var lightbox = document.getElementById("lightbox");
   var lightboxImg = document.getElementById("lightbox-img");
   var lightboxCaption = document.getElementById("lightbox-caption");
 
   function openLightbox(index) {
-    currentIndex = index;
+    currentPieceIndex = index;
+    currentImageIndex = 0;
     updateLightbox();
     lightbox.hidden = false;
     lightbox.offsetHeight;
@@ -150,11 +168,16 @@
   }
 
   function updateLightbox() {
-    var piece = displayedArtwork[currentIndex];
-    lightboxImg.src = piece.image;
+    var piece = displayedArtwork[currentPieceIndex];
+    var images = piece.images || (piece.image ? [piece.image] : []);
+
+    lightboxImg.src = images[currentImageIndex];
     lightboxImg.alt = piece.title;
 
     var caption = piece.title;
+    if (images.length > 1) {
+      caption += " \u2014 Image " + (currentImageIndex + 1) + " of " + images.length;
+    }
     if (piece.date || piece.medium) {
       var parts = [];
       if (piece.date) parts.push(piece.date);
@@ -165,13 +188,32 @@
   }
 
   function nextImage() {
-    currentIndex = (currentIndex + 1) % displayedArtwork.length;
+    var piece = displayedArtwork[currentPieceIndex];
+    var images = piece.images || (piece.image ? [piece.image] : []);
+
+    if (currentImageIndex < images.length - 1) {
+      // Move to next image within this piece
+      currentImageIndex++;
+    } else {
+      // Move to first image of next piece
+      currentPieceIndex = (currentPieceIndex + 1) % displayedArtwork.length;
+      currentImageIndex = 0;
+    }
     updateLightbox();
   }
 
   function prevImage() {
-    currentIndex =
-      (currentIndex - 1 + displayedArtwork.length) % displayedArtwork.length;
+    if (currentImageIndex > 0) {
+      // Move to previous image within this piece
+      currentImageIndex--;
+    } else {
+      // Move to last image of previous piece
+      currentPieceIndex =
+        (currentPieceIndex - 1 + displayedArtwork.length) % displayedArtwork.length;
+      var prevPiece = displayedArtwork[currentPieceIndex];
+      var prevImages = prevPiece.images || (prevPiece.image ? [prevPiece.image] : []);
+      currentImageIndex = prevImages.length - 1;
+    }
     updateLightbox();
   }
 

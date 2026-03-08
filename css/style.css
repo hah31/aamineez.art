@@ -148,6 +148,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .gallery-item-img-wrap img {
@@ -176,6 +177,19 @@ img {
   margin-top: 4px;
   font-size: 13px;
   color: var(--color-text-secondary);
+}
+
+.gallery-item-count {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
 }
 
 /* Placeholder state for items without real images */

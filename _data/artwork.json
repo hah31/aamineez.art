@@ -2,7 +2,9 @@
   "pieces": [
     {
       "title": "Bismillah",
-      "image": "images/artwork/bismillah.jpg",
+      "images": [
+        "images/artwork/bismillah.jpg"
+      ],
       "date": "2025",
       "medium": "Ink on paper",
       "description": "",
@@ -10,7 +12,9 @@
     },
     {
       "title": "Salam",
-      "image": "images/artwork/salam.jpg",
+      "images": [
+        "images/artwork/salam.jpg"
+      ],
       "date": "2025",
       "medium": "Ink on paper",
       "description": "",
@@ -18,7 +22,9 @@
     },
     {
       "title": "Patience",
-      "image": "images/artwork/patience.jpg",
+      "images": [
+        "images/artwork/patience.jpg"
+      ],
       "date": "2024",
       "medium": "Ink on handmade paper",
       "description": "",
@@ -26,7 +32,9 @@
     },
     {
       "title": "Light Upon Light",
-      "image": "images/artwork/light-upon-light.jpg",
+      "images": [
+        "images/artwork/light-upon-light.jpg"
+      ],
       "date": "2024",
       "medium": "Gold ink on black paper",
       "description": "",
@@ -34,7 +42,9 @@
     },
     {
       "title": "Gratitude",
-      "image": "images/artwork/gratitude.jpg",
+      "images": [
+        "images/artwork/gratitude.jpg"
+      ],
       "date": "2024",
       "medium": "Watercolor and ink",
       "description": "",
@@ -42,7 +52,9 @@
     },
     {
       "title": "The Pen",
-      "image": "images/artwork/the-pen.jpg",
+      "images": [
+        "images/artwork/the-pen.jpg"
+      ],
       "date": "2023",
       "medium": "Reed pen on cotton paper",
       "description": "",
