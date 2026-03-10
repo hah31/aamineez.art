@@ -32,58 +32,23 @@
 # The backend controls how the CMS authenticates users and
 # how it reads/writes content in your repository.
 #
-# CURRENT: "test-repo" backend
-#   - No login required — anyone can access the admin panel
-#   - Changes are saved in your browser's memory ONLY
-#   - Nothing is committed to GitHub
-#   - Use this to explore the admin interface safely
+# CURRENT: GitHub OAuth via Sveltia CMS
+#   - Users log in with their GitHub account
+#   - Changes are committed directly to the GitHub repo
+#   - No proxy server or external auth service needed
+#   - Sveltia CMS handles OAuth via PKCE (client-side only)
 #
-# *** WHEN YOU ARE READY FOR PRODUCTION, replace the backend
-#     section below with ONE of these options: ***
-#
-# ─── OPTION 1: Git Gateway (via Netlify Identity) ───
-#   Best if your site is deployed through Netlify.
-#   Provides email/password login for CMS users.
-#
-#   backend:
-#     name: git-gateway
-#     branch: main
-#
-#   Setup steps:
-#   1. Deploy your site on Netlify (connect your GitHub repo)
-#   2. Enable Netlify Identity (Site Settings → Identity)
-#   3. Enable Git Gateway (Identity → Services → Git Gateway)
-#   4. Invite yourself as a user in the Identity tab
-#   5. Add this script to your site's <head> tag:
-#      <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-#
-# ─── OPTION 2: GitHub OAuth (direct GitHub login) ───
-#   Users log in with their GitHub account. Works with
-#   GitHub Pages (no Netlify required).
-#
-#   backend:
-#     name: github
-#     repo: hah31/aamineez.art
-#     branch: main
-#
-#   Setup steps:
+# SETUP (one-time):
 #   1. Go to GitHub → Settings → Developer Settings → OAuth Apps
 #   2. Register a new OAuth application:
 #      - Application name: Aamineez CMS
 #      - Homepage URL: https://aamineez.art
 #      - Authorization callback URL: https://aamineez.art/admin/
-#   3. You will need an OAuth authentication proxy server.
-#      Options include:
-#      - Netlify (free): deploy a site with Netlify and use
-#        its built-in OAuth proxy
-#      - Self-hosted: https://github.com/vencax/netlify-cms-github-oauth-provider
-#   4. Add to this config under backend:
-#      base_url: https://your-oauth-proxy.example.com
-#
-#   See: https://decapcms.org/docs/github-backend/
+#   3. No Client Secret needed — PKCE is a public client flow
 # ------------------------------------------------------------
 backend:
-  name: git-gateway
+  name: github
+  repo: hah31/aamineez.art
   branch: main
 
 # ------------------------------------------------------------
