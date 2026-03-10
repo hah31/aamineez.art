@@ -51,8 +51,10 @@
   <!-- Lightbox -->
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Artwork viewer" hidden>
     <button class="lightbox-close" aria-label="Close">&times;</button>
-    <button class="lightbox-prev" aria-label="Previous artwork">&lsaquo;</button>
-    <button class="lightbox-next" aria-label="Next artwork">&rsaquo;</button>
+    <div class="lightbox-nav">
+      <button class="lightbox-prev" aria-label="Previous artwork">&lsaquo;</button>
+      <button class="lightbox-next" aria-label="Next artwork">&rsaquo;</button>
+    </div>
     <figure class="lightbox-content">
       <img class="lightbox-img" id="lightbox-img" src="" alt="">
       <figcaption class="lightbox-caption" id="lightbox-caption"></figcaption>
