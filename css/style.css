@@ -155,7 +155,36 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.gallery-item-img-wrap.is-loading img {
+  opacity: 0;
+}
+
+.gallery-item-img-wrap.is-loaded img {
+  opacity: 1;
+}
+
+.gallery-item-img-wrap::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #f5f5f7 25%, #e8e8ed 50%, #f5f5f7 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-item-img-wrap.is-loading::before {
+  opacity: 1;
+}
+
+@keyframes loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
 }
 
 .gallery-item:hover .gallery-item-img-wrap img {
@@ -278,6 +307,12 @@ img {
   opacity: 0;
   transform: scale(0.96);
   transition: opacity 0.3s ease 0.1s, transform 0.3s ease 0.1s;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 25%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0.1) 75%);
+  background-size: 200% 100%;
+}
+
+.lightbox-img.is-loading {
+  animation: loading 1.5s infinite;
 }
 
 .lightbox.is-active .lightbox-img {
