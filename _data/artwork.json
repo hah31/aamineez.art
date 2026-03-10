@@ -5,7 +5,7 @@
       "images": [
         "images/artwork/image14.jpeg",
         "images/artwork/image13.jpeg",
-        "images/artwork/image5.jpeg",
+        "images/artwork/image5.jpeg"
       ],
       "date": "2026",
       "medium": "Ink on paper",
@@ -16,7 +16,7 @@
       "title": "Salam",
       "images": [
         "images/artwork/image12.jpeg",
-        "images/artwork/image11.jpeg",
+        "images/artwork/image11.jpeg"
       ],
       "date": "2026",
       "medium": "Ink on paper",
@@ -27,7 +27,7 @@
       "title": "Patience",
       "images": [
         "images/artwork/image10.jpeg",
-        "images/artwork/image9.jpeg",
+        "images/artwork/image9.jpeg"
       ],
       "date": "2026",
       "medium": "Ink on handmade paper",
@@ -38,7 +38,7 @@
       "title": "Light Upon Light",
       "images": [
         "images/artwork/image8.jpeg",
-        "images/artwork/image7.jpeg",
+        "images/artwork/image7.jpeg"
       ],
       "date": "2026",
       "medium": "Gold ink on black paper",
@@ -49,7 +49,7 @@
       "title": "Gratitude",
       "images": [
         "images/artwork/image6.jpeg",
-        "images/artwork/image4.jpeg",
+        "images/artwork/image4.jpeg"
       ],
       "date": "2026",
       "medium": "Watercolor and ink",
@@ -60,7 +60,7 @@
       "title": "The Pen",
       "images": [
         "images/artwork/image3.jpeg",
-        "images/artwork/image2.jpeg",
+        "images/artwork/image2.jpeg"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
@@ -72,7 +72,7 @@
       "images": [
         "images/artwork/image1.jpeg",
         "images/artwork/image0.jpeg",
-        "images/artwork/image4.jpeg",
+        "images/artwork/image4.jpeg"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
@@ -85,8 +85,7 @@
         "images/artwork/image3.jpeg",
         "images/artwork/image2.jpeg",
         "images/artwork/image1.jpeg",
-        "images/artwork/image0.jpeg",
-        
+        "images/artwork/image0.jpeg"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
