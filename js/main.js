@@ -165,6 +165,7 @@
   var currentPieceIndex = 0;
   var currentImageIndex = 0;
   var lightbox = document.getElementById("lightbox");
+  var scrollYBeforeLightbox = 0;
   var lightboxImg = document.getElementById("lightbox-img");
   var lightboxCaption = document.getElementById("lightbox-caption");
 
@@ -183,12 +184,20 @@
     lightbox.hidden = false;
     lightbox.offsetHeight;
     lightbox.classList.add("is-active");
-    document.body.style.overflow = "hidden";
+    // iOS Safari scroll-lock: position:fixed prevents momentum scroll-through
+    scrollYBeforeLightbox = window.scrollY;
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+    document.body.style.top = "-" + scrollYBeforeLightbox + "px";
   }
 
   function closeLightbox() {
     lightbox.classList.remove("is-active");
-    document.body.style.overflow = "";
+    // Restore scroll position before unlocking
+    document.body.style.position = "";
+    document.body.style.width = "";
+    document.body.style.top = "";
+    window.scrollTo(0, scrollYBeforeLightbox);
     setTimeout(function () {
       lightbox.hidden = true;
     }, 300);
@@ -327,6 +336,35 @@
         break;
     }
   });
+
+  // --- Touch / Swipe ---
+
+  var touchStartX = 0;
+  var touchStartY = 0;
+
+  lightbox.addEventListener("touchstart", function (e) {
+    touchStartX = e.changedTouches[0].clientX;
+    touchStartY = e.changedTouches[0].clientY;
+  }, { passive: true });
+
+  lightbox.addEventListener("touchmove", function (e) {
+    // Prevent background page scroll while lightbox is open
+    e.preventDefault();
+  }, { passive: false });
+
+  lightbox.addEventListener("touchend", function (e) {
+    var deltaX = e.changedTouches[0].clientX - touchStartX;
+    var deltaY = e.changedTouches[0].clientY - touchStartY;
+
+    // Only fire if swipe is more horizontal than vertical and exceeds 50px threshold
+    if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+      if (deltaX < 0) {
+        nextImage();
+      } else {
+        prevImage();
+      }
+    }
+  }, { passive: true });
 
   // --- Init ---
   loadArtwork().then(renderGallery);

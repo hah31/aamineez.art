@@ -136,9 +136,16 @@ img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+.gallery-item:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  }
 }
 
 .gallery-item-img-wrap {
@@ -187,8 +194,10 @@ img {
   100% { background-position: -200% 0; }
 }
 
-.gallery-item:hover .gallery-item-img-wrap img {
-  transform: scale(1.03);
+@media (hover: hover) and (pointer: fine) {
+  .gallery-item:hover .gallery-item-img-wrap img {
+    transform: scale(1.03);
+  }
 }
 
 .gallery-item-info {
@@ -371,6 +380,11 @@ img {
   right: 16px;
 }
 
+/* Nav wrapper — display: contents lets buttons keep their absolute positioning on desktop */
+.lightbox-nav {
+  display: contents;
+}
+
 /* --- Responsive --- */
 @media (max-width: 768px) {
   .hero {
@@ -398,18 +412,69 @@ img {
     padding: 70px 20px;
   }
 
+  /* Lightbox image — shorter to leave room for bottom nav bar */
+  .lightbox-img {
+    max-height: 65vh;
+    max-width: calc(100vw - 32px);
+  }
+
+  /* Caption overflow protection */
+  .lightbox-caption {
+    max-width: calc(100vw - 48px);
+    font-size: 13px;
+    padding: 0 16px;
+    word-break: break-word;
+  }
+
+  /* Close button — visible frosted circle */
+  .lightbox-close {
+    top: 16px;
+    right: 16px;
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+    padding: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Nav wrapper — switch to bottom pill bar on mobile */
+  .lightbox-nav {
+    display: flex;
+    gap: 16px;
+    position: absolute;
+    bottom: 28px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+  }
+
+  /* Prev/next buttons — frosted pills */
   .lightbox-prev,
   .lightbox-next {
-    font-size: 36px;
-    padding: 12px;
-  }
-
-  .lightbox-prev {
-    left: 8px;
-  }
-
-  .lightbox-next {
-    right: 8px;
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+    min-width: 64px;
+    min-height: 56px;
+    font-size: 32px;
+    padding: 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 
@@ -417,6 +482,23 @@ img {
   .gallery {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  /* Tighten header to prevent nav overflow on narrow screens */
+  .site-title {
+    font-size: 18px;
+  }
+
+  .site-nav {
+    gap: 16px;
+  }
+
+  .site-nav a {
+    font-size: 13px;
+  }
+
+  .header-inner {
+    padding: 12px 16px;
   }
 }
 
