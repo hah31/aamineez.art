@@ -94,12 +94,31 @@
       imgWrap.className = "gallery-item-img-wrap";
 
       // Display the first image from the images array
+      var imgSrc = piece.images && piece.images.length > 0 ? piece.images[0] : piece.image;
       var img = document.createElement("img");
-      img.src = piece.images && piece.images.length > 0 ? piece.images[0] : piece.image;
+      img.src = imgSrc;
       img.alt = piece.title;
       img.loading = "lazy";
       img.decoding = "async";
+      // Add dimensions to prevent layout shift
+      img.width = 400;
+      img.height = 500;
+      img.style.aspectRatio = "4/5";
+
+      // Track loading state
+      var isLoading = true;
+      img.addEventListener("loadstart", function () {
+        imgWrap.classList.add("is-loading");
+      });
+      img.addEventListener("load", function () {
+        isLoading = false;
+        imgWrap.classList.remove("is-loading");
+        imgWrap.classList.add("is-loaded");
+      });
+
       img.onerror = function () {
+        isLoading = false;
+        imgWrap.classList.remove("is-loading");
         imgWrap.classList.add("gallery-item-placeholder");
         imgWrap.textContent = "\u2702";
         img.remove();
@@ -149,6 +168,14 @@
   var lightboxImg = document.getElementById("lightbox-img");
   var lightboxCaption = document.getElementById("lightbox-caption");
 
+  // Track lightbox image loading state
+  lightboxImg.addEventListener("loadstart", function () {
+    lightboxImg.classList.add("is-loading");
+  });
+  lightboxImg.addEventListener("load", function () {
+    lightboxImg.classList.remove("is-loading");
+  });
+
   function openLightbox(index) {
     currentPieceIndex = index;
     currentImageIndex = 0;
@@ -185,6 +212,39 @@
       caption += " \u2014 " + parts.join(", ");
     }
     lightboxCaption.textContent = caption;
+
+    // Preload adjacent images for smooth navigation
+    preloadLightboxImages();
+  }
+
+  function preloadLightboxImages() {
+    var currentPiece = displayedArtwork[currentPieceIndex];
+    var currentImages = currentPiece.images || (currentPiece.image ? [currentPiece.image] : []);
+
+    var imagesToPreload = [];
+
+    // Preload next image in current piece or first image of next piece
+    if (currentImageIndex < currentImages.length - 1) {
+      imagesToPreload.push(currentImages[currentImageIndex + 1]);
+    } else if (currentPieceIndex < displayedArtwork.length - 1) {
+      var nextPiece = displayedArtwork[currentPieceIndex + 1];
+      imagesToPreload.push(nextPiece.images && nextPiece.images.length > 0 ? nextPiece.images[0] : nextPiece.image);
+    }
+
+    // Preload previous image
+    if (currentImageIndex > 0) {
+      imagesToPreload.push(currentImages[currentImageIndex - 1]);
+    }
+
+    imagesToPreload.forEach(function (src) {
+      if (src) {
+        var link = document.createElement("link");
+        link.rel = "prefetch";
+        link.as = "image";
+        link.href = src;
+        document.head.appendChild(link);
+      }
+    });
   }
 
   function nextImage() {
