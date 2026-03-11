@@ -45,7 +45,8 @@
       <div class="inquire-inner">
         <h2>Inquire</h2>
         <p class="inquire-subtitle">Interested in a piece? Fill out the form below and I'll be in touch.</p>
-        <form class="inquire-form" action="https://formspree.io/f/mqeyprlp" method="POST">
+        <form class="inquire-form" action="https://formsubmit.co/aamina.hassan@gmail.com" method="POST">
+          <input type="hidden" name="_next" value="/thank-you">
           <div class="inquire-row">
             <div class="inquire-field">
               <label for="first-name">First Name</label>
@@ -57,12 +58,8 @@
             </div>
           </div>
           <div class="inquire-field">
-            <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" required placeholder="(555) 555-5555">
-          </div>
-          <div class="inquire-field">
-            <label for="piece">Piece You're Interested In</label>
-            <textarea id="piece" name="piece_of_interest" rows="4" required placeholder="Describe or name the piece you're interested in..."></textarea>
+            <label for="piece">Piece Interested</label>
+            <input type="text" id="piece" name="piece_interested" required placeholder="Name the piece you're interested in">
           </div>
           <button type="submit" class="inquire-submit">Send Inquiry</button>
         </form>
