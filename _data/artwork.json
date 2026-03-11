@@ -1,30 +1,30 @@
 {
   "pieces": [
     {
-      "title": "Blue White",
+      "title": "Haza Min Fazl e Rabbi - $520",
       "images": [
         "images/artwork/bluewhitecontext.webp",
         "images/artwork/bluewhitemain.webp",
         "images/artwork/bluewhitezoomed.webp"
       ],
       "date": "2026",
-      "medium": "Ink on paper",
-      "description": "",
+      "medium": "Alcohol ink and silver leaf on canvas",
+      "description": "Translation: This is by the grace of my Lord.  Dimensions: 30w x 40h inches.",
       "status": "available"
     },
     {
-      "title": "Square",
+      "title": "Shahadah - $450",
       "images": [
         "images/artwork/squarecontext.webp",
         "images/artwork/squaremain.webp"
       ],
       "date": "2026",
-      "medium": "Ink on paper",
-      "description": "",
+      "medium": "Alcohol ink on canvas",
+      "description": "Dimensions: 36w x 36h inches.",
       "status": "available"
     },
     {
-      "title": "The Big One",
+      "title": "Basmallah - $575",
       "images": [
         "images/artwork/thebigonecontext.webp",
         "images/artwork/thebigoneleft.webp",
@@ -32,64 +32,88 @@
         "images/artwork/thebigoneright.webp"
       ],
       "date": "2026",
-      "medium": "Ink on handmade paper",
-      "description": "",
+      "medium": "Alcohol ink on canvas",
+      "description": "48w x 36h inches.",
       "status": "available"
     },
     {
-      "title": "Waves",
+      "title": "Fabi Ayyi Alaa i Rabbikuma Tukazziban - $250",
       "images": [
         "images/artwork/wavescontext.webp",
         "images/artwork/wavesmain.webp",
         "images/artwork/wavesangle.webp"
       ],
       "date": "2026",
-      "medium": "Gold ink on black paper",
-      "description": "",
+      "medium": "Alcohol ink and Sumi ink on Yupo",
+      "description": "Dimensions: 18w x 12h inches.",
       "status": "available"
     },
     {
-      "title": "Pink Purple",
+      "title": "Allah - $300",
       "images": [
         "images/artwork/pinkpurplecontext.webp",
         "images/artwork/pinkpurplemain.webp"
       ],
       "date": "2026",
-      "medium": "Watercolor and ink",
-      "description": "",
+      "medium": "Alcohol ink on canvas",
+      "description": "Dimensions: 18w x 24h inches.",
       "status": "available"
     },
     {
-      "title": "Hail",
+      "title": "Alhamdulillah #1 - $375",
       "images": [
         "images/artwork/hailcontext.webp",
         "images/artwork/hailmain.webp"
       ],
       "date": "2026",
-      "medium": "Reed pen on cotton paper",
-      "description": "",
+      "medium": "Alcohol ink and Bombay ink on canvas",
+      "description": "Dimensions: 18w x 24h inches.",
       "status": "available"
     },
     {
-      "title": "Fairy",
+      "title": "Rabbi Inni Lima Anzalta (gray/pink)- $400",
       "images": [
         "images/artwork/fairycontext.webp",
         "images/artwork/fairymain.webp"
       ],
       "date": "2026",
-      "medium": "Reed pen on cotton paper",
-      "description": "",
+      "medium": "Alcohol ink and gold leaf on canvas",
+      "description": "Translation: My Lord, I am truly in need of whatever good You send down to me.  Dimensions: 18w x 24h inches.",
       "status": "available"
     },
     {
-      "title": "Black Frame",
+      "title": "Black Frame Allahumma Barik Hazal Bait - $325",
       "images": [
         "images/artwork/blackframecontext.webp",
         "images/artwork/blackframemain.webp"
       ],
       "date": "2026",
-      "medium": "Reed pen on cotton paper",
-      "description": "",
+      "medium": "Alcohol ink and Sumi ink on canvas",
+      "description": "Translation: O Allah, bless this house.  Dimensions: 18w x 24h inches.",
+      "status": "available"
+    }
+    {
+      "title": "Silver Frame Allahumma Barik Hazal Bait - $250",
+      "images": [
+        "images/artwork/graycontext.webp",
+        "images/artwork/graymain.webp",
+        "images/artwork/grayzoomed.webp"
+      ],
+      "date": "2026",
+      "medium": "Alcohol ink on canvas",
+      "description": "Translation: O Allah, bless this house.",
+      "status": "available"
+    }
+    {
+      "title": "Alhamdulillah #2 - $375",
+      "images": [
+        "images/artwork/graycontext.webp",
+        "images/artwork/graymain.webp",
+        "images/artwork/grayzoomed.webp"
+      ],
+      "date": "2026",
+      "medium": "Alcohol ink on canvas",
+      "description": "Dimensions: 18w x 24h inches.",
       "status": "available"
     }
   ]
