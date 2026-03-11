@@ -52,10 +52,7 @@
         if (heroHeading && settings.heroHeading) {
           heroHeading.textContent = settings.heroHeading;
         }
-        var aboutText = document.querySelector(".about-inner p");
-        if (aboutText && settings.aboutText) {
-          aboutText.textContent = settings.aboutText;
-        }
+
       })
       .catch(function () {
         // Settings file not available; keep the hardcoded text
