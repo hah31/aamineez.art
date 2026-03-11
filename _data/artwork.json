@@ -1,11 +1,11 @@
 {
   "pieces": [
     {
-      "title": "Bismillah",
+      "title": "Blue White",
       "images": [
-        "images/artwork/image14.jpeg",
-        "images/artwork/image13.jpeg",
-        "images/artwork/image5.jpeg"
+        "images/artwork/bluewhitecontext.jpeg",
+        "images/artwork/bluewhitemain.jpeg",
+        "images/artwork/bluewhitezoomed.jpeg"
       ],
       "date": "2026",
       "medium": "Ink on paper",
@@ -13,10 +13,10 @@
       "status": "available"
     },
     {
-      "title": "Salam",
+      "title": "Square",
       "images": [
-        "images/artwork/image11.jpeg",
-        "images/artwork/image12.jpeg"
+        "images/artwork/squarecontext.jpeg",
+        "images/artwork/squaremain.jpeg"
       ],
       "date": "2026",
       "medium": "Ink on paper",
@@ -24,10 +24,12 @@
       "status": "available"
     },
     {
-      "title": "Patience",
+      "title": "The Big One",
       "images": [
-        "images/artwork/image10.jpeg",
-        "images/artwork/image9.jpeg"
+        "images/artwork/thebigonecontext.jpeg",
+        "images/artwork/thebigoneleft.jpeg",
+        "images/artwork/thebigonemain.jpeg",
+        "images/artwork/thebigoneright.jpeg"
       ],
       "date": "2026",
       "medium": "Ink on handmade paper",
@@ -35,10 +37,11 @@
       "status": "available"
     },
     {
-      "title": "Light Upon Light",
+      "title": "Waves",
       "images": [
-        "images/artwork/image7.jpeg",
-        "images/artwork/image8.jpeg"
+        "images/artwork/wavescontext.jpeg",
+        "images/artwork/wavesmain.jpeg",
+        "images/artwork/wavesangle.jpeg"
       ],
       "date": "2026",
       "medium": "Gold ink on black paper",
@@ -46,10 +49,10 @@
       "status": "available"
     },
     {
-      "title": "Gratitude",
+      "title": "Pink Purple",
       "images": [
-        "images/artwork/image6.jpeg",
-        "images/artwork/image4.jpeg"
+        "images/artwork/pinkpurplecontext.jpeg",
+        "images/artwork/pinkpurplemain.jpeg"
       ],
       "date": "2026",
       "medium": "Watercolor and ink",
@@ -57,10 +60,10 @@
       "status": "available"
     },
     {
-      "title": "The Pen",
+      "title": "Hail",
       "images": [
-        "images/artwork/image31.jpeg",
-        "images/artwork/image32.jpeg"
+        "images/artwork/hailcontext.jpeg",
+        "images/artwork/hailmain.jpeg"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
@@ -68,11 +71,10 @@
       "status": "available"
     },
     {
-      "title": "The Waves",
+      "title": "Fairy",
       "images": [
-        "images/artwork/image20.jpeg",
-        "images/artwork/image21.jpeg",
-        "images/artwork/image22.jpeg"
+        "images/artwork/fairycontext.jpeg",
+        "images/artwork/fairymain.jpeg"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
@@ -80,12 +82,10 @@
       "status": "available"
     },
     {
-      "title": "The Big One",
+      "title": "Black Frame",
       "images": [
-        "images/artwork/image3.jpeg",
-        "images/artwork/image2.jpeg",
-        "images/artwork/image1.jpeg",
-        "images/artwork/image0.jpeg"
+        "images/artwork/blackframecontext.jpeg",
+        "images/artwork/blackframemain.jpeg"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
