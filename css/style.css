@@ -351,6 +351,10 @@ img {
   border-top: 1px solid var(--color-border);
 }
 
+.site-footer a {
+  color: #000;
+}
+
 /* --- Lightbox --- */
 .lightbox {
   position: fixed;
