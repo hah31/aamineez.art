@@ -3,9 +3,9 @@
     {
       "title": "Blue White",
       "images": [
-        "images/artwork/bluewhitecontext.jpeg",
-        "images/artwork/bluewhitemain.jpeg",
-        "images/artwork/bluewhitezoomed.jpeg"
+        "images/artwork/bluewhitecontext.webp",
+        "images/artwork/bluewhitemain.webp",
+        "images/artwork/bluewhitezoomed.webp"
       ],
       "date": "2026",
       "medium": "Ink on paper",
@@ -15,8 +15,8 @@
     {
       "title": "Square",
       "images": [
-        "images/artwork/squarecontext.jpeg",
-        "images/artwork/squaremain.jpeg"
+        "images/artwork/squarecontext.webp",
+        "images/artwork/squaremain.webp"
       ],
       "date": "2026",
       "medium": "Ink on paper",
@@ -26,10 +26,10 @@
     {
       "title": "The Big One",
       "images": [
-        "images/artwork/thebigonecontext.jpeg",
-        "images/artwork/thebigoneleft.jpeg",
-        "images/artwork/thebigonemain.jpeg",
-        "images/artwork/thebigoneright.jpeg"
+        "images/artwork/thebigonecontext.webp",
+        "images/artwork/thebigoneleft.webp",
+        "images/artwork/thebigonemain.webp",
+        "images/artwork/thebigoneright.webp"
       ],
       "date": "2026",
       "medium": "Ink on handmade paper",
@@ -39,9 +39,9 @@
     {
       "title": "Waves",
       "images": [
-        "images/artwork/wavescontext.jpeg",
-        "images/artwork/wavesmain.jpeg",
-        "images/artwork/wavesangle.jpeg"
+        "images/artwork/wavescontext.webp",
+        "images/artwork/wavesmain.webp",
+        "images/artwork/wavesangle.webp"
       ],
       "date": "2026",
       "medium": "Gold ink on black paper",
@@ -51,8 +51,8 @@
     {
       "title": "Pink Purple",
       "images": [
-        "images/artwork/pinkpurplecontext.jpeg",
-        "images/artwork/pinkpurplemain.jpeg"
+        "images/artwork/pinkpurplecontext.webp",
+        "images/artwork/pinkpurplemain.webp"
       ],
       "date": "2026",
       "medium": "Watercolor and ink",
@@ -62,8 +62,8 @@
     {
       "title": "Hail",
       "images": [
-        "images/artwork/hailcontext.jpeg",
-        "images/artwork/hailmain.jpeg"
+        "images/artwork/hailcontext.webp",
+        "images/artwork/hailmain.webp"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
@@ -73,8 +73,8 @@
     {
       "title": "Fairy",
       "images": [
-        "images/artwork/fairycontext.jpeg",
-        "images/artwork/fairymain.jpeg"
+        "images/artwork/fairycontext.webp",
+        "images/artwork/fairymain.webp"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
@@ -84,8 +84,8 @@
     {
       "title": "Black Frame",
       "images": [
-        "images/artwork/blackframecontext.jpeg",
-        "images/artwork/blackframemain.jpeg"
+        "images/artwork/blackframecontext.webp",
+        "images/artwork/blackframemain.webp"
       ],
       "date": "2026",
       "medium": "Reed pen on cotton paper",
