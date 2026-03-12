@@ -39,7 +39,7 @@ const ARTWORK = [
     status: "available",
   },
   {
-    title: "Basmallah - $575",
+    title: "Bismillah - $575",
     images: [
       "images/artwork/thebigonecontext.webp",
       "images/artwork/thebigoneleft.webp",
