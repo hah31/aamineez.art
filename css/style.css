@@ -415,6 +415,15 @@ img {
   font-size: 15px;
   text-align: center;
   max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lightbox-description {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
 }
 
 .lightbox-close,

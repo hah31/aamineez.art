@@ -211,17 +211,28 @@
     lightboxImg.src = images[currentImageIndex];
     lightboxImg.alt = piece.title;
 
-    var caption = piece.title;
+    lightboxCaption.innerHTML = "";
+
+    var titleLine = document.createElement("span");
+    var captionText = piece.title;
     if (images.length > 1) {
-      caption += " \u2014 Image " + (currentImageIndex + 1) + " of " + images.length;
+      captionText += " \u2014 Image " + (currentImageIndex + 1) + " of " + images.length;
     }
     if (piece.date || piece.medium) {
       var parts = [];
       if (piece.date) parts.push(piece.date);
       if (piece.medium) parts.push(piece.medium);
-      caption += " \u2014 " + parts.join(", ");
+      captionText += " \u2014 " + parts.join(", ");
     }
-    lightboxCaption.textContent = caption;
+    titleLine.textContent = captionText;
+    lightboxCaption.appendChild(titleLine);
+
+    if (piece.description) {
+      var descLine = document.createElement("span");
+      descLine.className = "lightbox-description";
+      descLine.textContent = piece.description;
+      lightboxCaption.appendChild(descLine);
+    }
 
     // Preload adjacent images for smooth navigation
     preloadLightboxImages();
@@ -247,7 +258,7 @@
     }
 
     imagesToPreload.forEach(function (src) {
-      if (src) {
+      if (src && !document.querySelector('link[rel="prefetch"][href="' + src + '"]')) {
         var link = document.createElement("link");
         link.rel = "prefetch";
         link.as = "image";
