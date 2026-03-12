@@ -92,12 +92,16 @@
 
       // Display the first image from the images array
       var imgSrc = piece.images && piece.images.length > 0 ? piece.images[0] : piece.image;
+      // Use resized thumbnail (800px wide) for gallery to reduce bandwidth
+      var thumbSrc = imgSrc.replace("images/artwork/", "images/artwork/thumbs/");
       var img = document.createElement("img");
-      img.src = imgSrc;
+      img.src = thumbSrc;
+      img.srcset = thumbSrc + " 800w";
+      img.sizes = "(max-width: 480px) calc(100vw - 32px), (max-width: 768px) calc(50vw - 28px), 380px";
       img.alt = piece.title;
       img.loading = "lazy";
       img.decoding = "async";
-      // Add dimensions to prevent layout shift
+      // Explicit dimensions prevent layout shift (aspect ratio matches container)
       img.width = 400;
       img.height = 500;
       img.style.aspectRatio = "4/5";
