@@ -96,7 +96,7 @@
       var thumbSrc = imgSrc.replace("images/artwork/", "images/artwork/thumbs/");
       var img = document.createElement("img");
       img.src = thumbSrc;
-      img.srcset = thumbSrc + " 800w";
+      img.srcset = thumbSrc + " 800w, " + imgSrc + " 2400w";
       img.sizes = "(max-width: 480px) calc(100vw - 32px), (max-width: 768px) calc(50vw - 28px), 380px";
       img.alt = piece.title;
       img.loading = "lazy";
