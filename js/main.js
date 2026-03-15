@@ -10,8 +10,6 @@
   if (!gallery) return;
 
   // Determine which status to show based on a data attribute on the gallery.
-  // index.html sets data-status-filter="available"
-  // previous-works.html sets data-status-filter="sold"
   var statusFilter = gallery.dataset.statusFilter || "available";
 
   // The filtered artwork for this page (populated after data loads)
@@ -69,10 +67,7 @@
     if (displayedArtwork.length === 0) {
       var empty = document.createElement("p");
       empty.className = "gallery-empty";
-      empty.textContent =
-        statusFilter === "sold"
-          ? "No previous works to display yet."
-          : "No artwork to display yet.";
+      empty.textContent = "No artwork to display yet.";
       gallery.appendChild(empty);
       return;
     }
