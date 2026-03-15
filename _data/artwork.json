@@ -1,30 +1,31 @@
 {
   "pieces": [
     {
-      "title": "Haza Min Fazl e Rabbi - $520",
+      "title": "Haza Min Fazl e Rabbi - $500",
       "images": [
-        "images/artwork/bluewhitecontext.webp",
+        "images/artwork/bluewhitesofa.webp",
         "images/artwork/bluewhitemain.webp",
-        "images/artwork/bluewhitezoomed.webp"
+        "images/artwork/bluewhiteangled.webp"
       ],
       "date": "2026",
       "medium": "Alcohol ink and silver leaf on canvas",
-      "description": "Translation: This is by the grace of my Lord.  Dimensions: 30w x 40h inches.",
+      "description": "Translation: This is by the grace of my Lord. 30w x 40h  in.",
       "status": "available"
     },
     {
-      "title": "Shahadah - $450",
+      "title": "Shahadah - $425",
       "images": [
-        "images/artwork/squarecontext.webp",
-        "images/artwork/squaremain.webp"
+        "images/artwork/squaresofacontext.webp",
+        "images/artwork/squaremain.webp",
+        "images/artwork/squarelettering.webp"
       ],
       "date": "2026",
       "medium": "Alcohol ink on canvas",
-      "description": "Dimensions: 36w x 36h inches.",
+      "description": "36w x 36h  in.",
       "status": "available"
     },
     {
-      "title": "Bismillah - $575",
+      "title": "Bismillah - $550",
       "images": [
         "images/artwork/thebigonecontext.webp",
         "images/artwork/thebigoneleft.webp",
@@ -33,7 +34,7 @@
       ],
       "date": "2026",
       "medium": "Alcohol ink on canvas",
-      "description": "48w x 36h inches.",
+      "description": "48w x 36h  in.",
       "status": "available"
     },
     {
@@ -45,40 +46,40 @@
       ],
       "date": "2026",
       "medium": "Alcohol ink and Sumi ink on Yupo",
-      "description": "Dimensions: 18w x 12h inches.",
+      "description": "18w x 12h  in.",
       "status": "available"
     },
     {
-      "title": "Allah - $300",
+      "title": "Allah - $275",
       "images": [
         "images/artwork/pinkpurplecontext.webp",
         "images/artwork/pinkpurplemain.webp"
       ],
       "date": "2026",
       "medium": "Alcohol ink on canvas",
-      "description": "Dimensions: 18w x 24h inches.",
+      "description": "18w x 24h  in.",
       "status": "available"
     },
     {
-      "title": "Alhamdulillah #1 - $375",
+      "title": "Alhamdulillah #1 - $350",
       "images": [
         "images/artwork/hailcontext.webp",
         "images/artwork/hailmain.webp"
       ],
       "date": "2026",
       "medium": "Alcohol ink and Bombay ink on canvas",
-      "description": "Dimensions: 18w x 24h inches.",
+      "description": "18w x 24h  in.",
       "status": "available"
     },
     {
-      "title": "Rabbi Inni Lima Anzalta (gray/pink)- $400",
+      "title": "Rabbi Inni Lima Anzalta (gray/pink)- $375",
       "images": [
         "images/artwork/fairycontext.webp",
         "images/artwork/fairymain.webp"
       ],
       "date": "2026",
       "medium": "Alcohol ink and gold leaf on canvas",
-      "description": "Translation: My Lord, I am truly in need of whatever good You send down to me.  Dimensions: 18w x 24h inches.",
+      "description": "Translation: My Lord, I am truly in need of whatever good You send down to me. 18w x 24h in.",
       "status": "available"
     },
     {
@@ -89,7 +90,7 @@
       ],
       "date": "2026",
       "medium": "Alcohol ink and Sumi ink on canvas",
-      "description": "Translation: O Allah, bless this house.  Dimensions: 18w x 24h inches.",
+      "description": "Translation: O Allah, bless this house. 18w x 24h  in.",
       "status": "available"
     },
     {
@@ -105,7 +106,7 @@
       "status": "available"
     },
     {
-      "title": "Alhamdulillah #2 - $375",
+      "title": "Alhamdulillah #2 - $350",
       "images": [
         "images/artwork/alhamdulillah2context.webp",
         "images/artwork/alhamdulillah2main.webp",
@@ -113,7 +114,7 @@
       ],
       "date": "2026",
       "medium": "Alcohol ink on canvas",
-      "description": "Dimensions: 18w x 24h inches.",
+      "description": "18w x 24h  in.",
       "status": "available"
     }
   ]
