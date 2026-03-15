@@ -60,9 +60,11 @@
   // --- Gallery Rendering ---
 
   function renderGallery(artwork) {
-    displayedArtwork = artwork.filter(function (piece) {
-      return piece.status === statusFilter;
-    });
+    displayedArtwork = statusFilter === "all"
+      ? artwork
+      : artwork.filter(function (piece) {
+        return piece.status === statusFilter;
+      });
 
     if (displayedArtwork.length === 0) {
       var empty = document.createElement("p");
@@ -76,7 +78,7 @@
 
     displayedArtwork.forEach(function (piece, index) {
       var item = document.createElement("article");
-      item.className = "gallery-item";
+      item.className = "gallery-item" + (piece.status === "sold" ? " sold" : "");
       item.setAttribute("role", "button");
       item.setAttribute("tabindex", "0");
       item.setAttribute("aria-label", "View " + piece.title);

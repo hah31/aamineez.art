@@ -280,6 +280,23 @@ img {
   backdrop-filter: blur(4px);
 }
 
+/* SOLD badge for sold items */
+.gallery-item.sold .gallery-item-img-wrap::after {
+  content: "SOLD";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  color: #1d1d1f;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 6px 10px;
+  border-radius: 3px;
+  z-index: 10;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
 /* Placeholder state for items without real images */
 .gallery-item-placeholder {
   display: flex;
